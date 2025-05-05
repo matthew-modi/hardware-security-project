@@ -25,3 +25,8 @@ After the sim runs:
 3. Save as `view_1.gtkw`
 
 Next time you run `make SIM=1`, your saved view loads automatically.
+
+## Delete Build Artifacts
+```bash
+make clean
+```

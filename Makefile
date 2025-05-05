@@ -9,3 +9,6 @@ default:
 	make -C $(OBJDIR) -f V$(TOP).mk V$(TOP)
 	./$(OBJDIR)/V$(TOP)
 	gtkwave dump.vcd view_1.gtkw
+
+clean:
+	rm -rf $(OBJDIR) dump.vcd

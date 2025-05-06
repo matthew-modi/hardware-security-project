@@ -1,7 +1,0 @@
-obj_dir/
-dump.vcd
-
-dummy/obj_dir/
-dummy/dump.vcd
-
-.vscode/

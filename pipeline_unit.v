@@ -43,7 +43,7 @@ end
 // stage 3
 
 always_comb begin // simulate L1
-d3 = inputs + (32'd1 << 2);
+d3 = inputs | (32'd1 << 2);
 end
 
 always_ff @ (posedge clk) begin
@@ -57,7 +57,7 @@ end
 // stage 4
 
 always_comb begin // simulate L1
-d4 = inputs + (32'd1  << 3);
+d4 = inputs | (32'd1  << 3);
 end
 
 always_ff @ (posedge clk) begin
@@ -69,7 +69,7 @@ always_ff @ (posedge clk) begin
 end
 
 always_comb begin // simulate L1
-d5 = inputs + (32'd1 << 4);
+d5 = inputs | (32'd1 << 4);
 end
 
 // stage 5

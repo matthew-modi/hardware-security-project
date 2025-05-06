@@ -15,7 +15,7 @@ logic [31:0] q1, q2, q3, q4;
 // stage 1
 
 always_comb begin // simulate L1
-d1 = inputs + 32'd10;
+d1 = inputs | (32'b1);
 end
 
 always_ff @ (posedge clk) begin
@@ -29,7 +29,7 @@ end
 // stage 2
 
 always_comb begin // simulate L1
-d2 = inputs + 32'd20;
+d2 = inputs | (32'b1 << 1);
 end
 
 always_ff @ (posedge clk) begin
@@ -43,7 +43,7 @@ end
 // stage 3
 
 always_comb begin // simulate L1
-d3 = inputs + 32'd30;
+d3 = inputs + (32'd1 << 2);
 end
 
 always_ff @ (posedge clk) begin
@@ -57,7 +57,7 @@ end
 // stage 4
 
 always_comb begin // simulate L1
-d4 = inputs + 32'd40;
+d4 = inputs + (32'd1  << 3);
 end
 
 always_ff @ (posedge clk) begin
@@ -69,7 +69,7 @@ always_ff @ (posedge clk) begin
 end
 
 always_comb begin // simulate L1
-d5 = inputs + 32'd50;
+d5 = inputs + (32'd1 << 4);
 end
 
 // stage 5

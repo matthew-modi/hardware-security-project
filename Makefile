@@ -1,4 +1,4 @@
-TOP = dummy
+TOP = top
 OBJDIR = obj_dir
 SIM ?= 1
 SIM_CPP = simulation_$(SIM).cpp

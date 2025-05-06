@@ -14,7 +14,7 @@ run `make` with the argument `SIM=n` depending on your simulation.
 make SIM=1
 ```
 
-This runs `simulation_1.cpp` and opens `dump.vcd` in GTKWave using `view_1.gtkw`.
+This runs `sim_1.cpp` and opens `dump.vcd` in GTKWave using `view_1.gtkw`.
 
 ## Save GTKWave view
 

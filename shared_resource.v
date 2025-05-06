@@ -8,11 +8,10 @@ module shared_resource(
 //imagine this like memory, where the data at the address is just the address plus 10 for now
 
 	always @ (posedge clk) begin
-
 		if (reset) begin
 			resource_output <= 0;
 		end else begin
-			resource_output <= resource_input + 32'd10;
+			resource_output <= resource_input + 32'd10000;
 		end
 	end
 

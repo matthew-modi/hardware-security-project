@@ -9,4 +9,10 @@ module producer_fsm (
     output wire        flush_2
 );
 // Producer logic placeholder
+
+logic 
+
+always_ff (@ posedge clk) begin
+
+
 endmodule

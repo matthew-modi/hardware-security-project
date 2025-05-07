@@ -43,8 +43,10 @@ module top (
     arbiter arbiter (
         .clk(clk),
         .reset(reset),
+
         .in_valid_1(end_valid_1),
         .in_valid_2(end_valid_2),
+        
         .out_stall_1(),
         .out_stall_2()
     );
@@ -86,9 +88,11 @@ module top (
     shared_resource shared_resource (
         .clk(clk),
         .reset(reset),
+
         .in_address(),
         .in_id(),
         .in_valid(),
+
         .out_data(resource_data),
         .out_id(resource_id),
         .out_valid(resource_valid)
@@ -97,6 +101,7 @@ module top (
     consumer consumer (
         .clk(clk),
         .reset(reset),
+
         .in_data(resource_data),
         .in_id(resource_id),
         .in_valid(resource_valid)

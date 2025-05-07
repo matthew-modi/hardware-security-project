@@ -4,7 +4,7 @@
 
 int main() {
     Verilated::traceEverOn(true);
-    Vdummy* dut = new Vdummy;
+    Vtop* dut = new Vtop;
     VerilatedVcdC* tfp = new VerilatedVcdC;
     dut->trace(tfp, 99);
     tfp->open("dump.vcd");

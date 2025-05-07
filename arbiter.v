@@ -13,7 +13,6 @@ module arbiter (
 	logic grant_1_rr;
 	logic grant_2_rr;
 	logic [2:0] counter; 
-	assign round_robin = req_1 && req_2;
 
 	always_ff (@ posedge clk) begin
 		if (reset || !round_robin) begin
@@ -29,6 +28,7 @@ module arbiter (
 		end
 	end
 
+	assign round_robin = req_1 && req_2;
 	assign grant_1 = (reset) ? 0 : ((round_robin) grant_1_rr : req_1);
 	assign grant_2 = (reset) ? 0 : ((round_robin) grant_1_rr : req_2);
 endmodule

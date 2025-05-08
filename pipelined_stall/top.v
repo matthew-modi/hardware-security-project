@@ -52,6 +52,7 @@ module top (
         .in_ready(resource_valid),
 
         .out_choice(arbiter_choice),
+        .out_valid(arbiter_valid),
 
         .out_stall_1(end_stall_1),
         .out_stall_2(end_stall_2)
@@ -97,6 +98,8 @@ module top (
 
         .in_address(arbiter_choice ? end_address_1 : end_address_2),
         .in_id(arbiter_choice ? end_id_1 : end_id_2),
+
+        .in_valid(arbiter_valid),
 
         .out_data(resource_data),
         .out_id(resource_id),

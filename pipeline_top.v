@@ -28,7 +28,8 @@ module pipeline_top (
         .in_valid (_in_valid),
         .flush    (flush),
         .outputs  (pipeline_unit_outputs),
-        .out_valid(_out_valid)
+        .out_valid(_out_valid),
+	.stall(stall)
     );
 
     buffer_slots buffer_slots_inst (

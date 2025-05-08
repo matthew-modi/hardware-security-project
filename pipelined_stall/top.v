@@ -40,6 +40,7 @@ module top (
     wire                        end_stall_2;
 
     wire                        arbiter_valid;
+    wire                        arbiter_choice;
 
     arbiter arbiter (
         .clk(clk),
@@ -48,10 +49,12 @@ module top (
         .in_valid_1(end_valid_1),
         .in_valid_2(end_valid_2),
 
-        .out_stall_1(end_stall_1),
-        .out_stall_2(end_stall_2),
+        .in_ready(resource_valid),
 
-        .out_valid(arbiter_valid)
+        .out_choice(arbiter_choice),
+
+        .out_stall_1(end_stall_1),
+        .out_stall_2(end_stall_2)
     );
 
     pipeline pipeline_1 (
@@ -92,9 +95,8 @@ module top (
         .clk(clk),
         .reset(reset),
 
-        .in_address(end_stall_1 ? end_address_1 : end_address_2),
-        .in_id(end_stall_1 ? end_id_1 : end_id_2),
-        .in_valid(arbiter_valid),
+        .in_address(arbiter_choice ? end_address_1 : end_address_2),
+        .in_id(arbiter_choice ? end_id_1 : end_id_2),
 
         .out_data(resource_data),
         .out_id(resource_id),

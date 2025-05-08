@@ -1,14 +1,14 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Thu May  8 04:24:54 2025
+[*] Thu May  8 04:46:17 2025
 [*]
-[dumpfile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/v1/dump.vcd"
-[dumpfile_mtime] "Thu May  8 04:24:16 2025"
-[dumpfile_size] 12101
-[savefile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/v1/view_top_producer.gtkw"
+[dumpfile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/pipelined_stall/dump.vcd"
+[dumpfile_mtime] "Thu May  8 04:45:31 2025"
+[dumpfile_size] 11799
+[savefile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/pipelined_stall/view_top_producer.gtkw"
 [timestart] 21
 [size] 1225 600
-[pos] 1171 139
+[pos] 1068 216
 *-1.930160 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
@@ -36,5 +36,23 @@ TOP.top.producer.out_address_2[4:0]
 TOP.top.producer.out_id_2[4:0]
 @28
 TOP.top.producer.out_valid_2
+@200
+-
+@22
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_id[4:0]
+@28
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_valid
+@200
+-
+@22
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_id[4:0]
+@28
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_valid
+@200
+-
+@22
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_id[4:0]
+@29
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_valid
 [pattern_trace] 1
 [pattern_trace] 0

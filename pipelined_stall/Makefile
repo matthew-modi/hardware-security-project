@@ -1,8 +1,11 @@
-target ?= top
 OBJDIR = obj_dir
+
+target ?= top
 sim ?= 1
+view ?= 1
+
 SIM_CPP = sim_$(target)_$(sim).cpp
-SIM_VIEW = view_$(target)_$(sim).gtkw
+SIM_VIEW = view_$(target)_$(sim)_$(view).gtkw
 
 default:
 	verilator -Wall -Wno-UNOPTFLAT -Wno-UNUSED -Wno-UNDRIVEN --cc $(target).v --exe $(SIM_CPP) --trace

@@ -15,10 +15,11 @@ module pipeline (
     input  wire                         in_stall
 );
     // Predeclare forward-facing wires
-    wire [`PIPELINE_DEPTH:0][`ADDRESS_WIDTH-1:0] address;
-    wire [`PIPELINE_DEPTH:0][`ID_WIDTH-1:0] id;
-    wire [`PIPELINE_DEPTH:0] valid;
-    wire [`PIPELINE_DEPTH:0] stall;
+    wire [`ADDRESS_WIDTH-1:0] address [`PIPELINE_DEPTH:0];
+    wire [`ID_WIDTH-1:0]      id      [`PIPELINE_DEPTH:0];
+    wire                      valid   [`PIPELINE_DEPTH:0];
+    wire                      stall   [`PIPELINE_DEPTH:0];
+
 
     assign address[0] = in_address;
     assign id[0]      = in_id;
@@ -36,10 +37,14 @@ module pipeline (
             pipeline_stage stage_inst (
             .clk(clk),
             .reset(reset),
+
+            .stage_offset((((i+1) * 3)) & ((1 << `ADDRESS_WIDTH) - 1)),  // jumble
+
             .in_address(address[i]),
             .in_id(id[i]),
             .in_valid(valid[i]),
             .out_stall(stall[i]),
+
             .out_address(address[i+1]),
             .out_id(id[i+1]),
             .out_valid(valid[i+1]),

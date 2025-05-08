@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu May  8 04:24:54 2025
+[*]
+[dumpfile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/v1/dump.vcd"
+[dumpfile_mtime] "Thu May  8 04:24:16 2025"
+[dumpfile_size] 12101
+[savefile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/v1/view_top_producer.gtkw"
+[timestart] 21
+[size] 1225 600
+[pos] 1171 139
+*-1.930160 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[treeopen] TOP.top.pipeline_1.
+[treeopen] TOP.top.pipeline_1.PIPELINE(0).
+[treeopen] TOP.top.pipeline_1.PIPELINE(1).
+[treeopen] TOP.top.pipeline_1.PIPELINE(2).
+[sst_width] 214
+[signals_width] 222
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+TOP.top.producer.clk
+TOP.top.producer.reset
+TOP.top.pipeline_1.out_stall
+TOP.top.producer.in_stall_1
+@22
+TOP.top.producer.out_address_1[4:0]
+TOP.top.producer.out_id_2[4:0]
+@28
+TOP.top.producer.out_valid_1
+TOP.top.producer.in_stall_2
+@22
+TOP.top.producer.out_address_2[4:0]
+TOP.top.producer.out_id_2[4:0]
+@28
+TOP.top.producer.out_valid_2
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,4 +1,4 @@
 `define PIPELINE_DEPTH 3
-`define ADDRESS_WIDTH 32
+`define ADDRESS_WIDTH 5
 `define DATA_WIDTH 32
 `define ID_WIDTH 5

@@ -49,7 +49,7 @@ module top (
         .in_valid_1(end_valid_1),
         .in_valid_2(end_valid_2),
 
-        .in_ready(resource_valid),
+        .in_ready(resource_ready),
 
         .out_choice(arbiter_choice),
         .out_valid(arbiter_valid),
@@ -91,18 +91,20 @@ module top (
     wire [`DATA_WIDTH-1:0]  resource_data;
     wire [`ID_WIDTH-1:0]    resource_id;
     wire                    resource_valid;
+    wire                    resource_ready;
 
     shared_resource shared_resource (
         .clk(clk),
         .reset(reset),
 
-        .in_address(arbiter_choice ? end_address_1 : end_address_2),
-        .in_id(arbiter_choice ? end_id_1 : end_id_2),
+        .in_address(!arbiter_choice ? end_address_1 : end_address_2),
+        .in_id(!arbiter_choice ? end_id_1 : end_id_2),
 
         .in_valid(arbiter_valid),
 
         .out_data(resource_data),
         .out_id(resource_id),
+        .out_ready(resource_ready),
         .out_valid(resource_valid)
     );
 

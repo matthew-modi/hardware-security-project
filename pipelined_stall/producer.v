@@ -18,7 +18,7 @@ module producer (
     reg [`ADDRESS_WIDTH-1:0] reg_address_1;
     reg [`ID_WIDTH-1:0]      reg_id_1;
     reg                      reg_valid_1;
-    
+
     reg [`ADDRESS_WIDTH-1:0] reg_address_2;
     reg [`ID_WIDTH-1:0]      reg_id_2;
     reg                      reg_valid_2;
@@ -43,18 +43,14 @@ module producer (
         end else begin
             if (!in_stall_1) begin
                 reg_address_1 <= (reg_address_1 + 4) & ((1 << `ADDRESS_WIDTH) - 1);
-                reg_id_1      <= (reg_id_1 + 1) & ((1 << `ID_WIDTH) - 1);
+                reg_id_1      <= {4'd1, (reg_id_1[3:0] + 4'b1)};
                 reg_valid_1   <= 1;
-            end else begin
-                reg_valid_1   <= 0;
             end
 
             if (!in_stall_2) begin
                 reg_address_2 <= (reg_address_2 + 4) & ((1 << `ADDRESS_WIDTH) - 1);
-                reg_id_2      <= (reg_id_2 + 1) & ((1 << `ID_WIDTH) - 1);
+                reg_id_2      <= {4'd2, (reg_id_1[3:0] + 4'b1)};
                 reg_valid_2   <= 1;
-            end else begin
-                reg_valid_2   <= 0;
             end
         end
     end

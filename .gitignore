@@ -1,7 +1,10 @@
-obj_dir/
-dump.vcd
-
 dummy/obj_dir/
 dummy/dump.vcd
+
+global_stall/obj_dir/
+global_stall/dump.vcd
+
+pipelined_stall/obj_dir/
+pipelined_stall/dump.vcd
 
 .vscode/

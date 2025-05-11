@@ -21,10 +21,16 @@ module top (
         .out_id_1(start_id_1),
         .out_valid_1(start_valid_1),
 
+	.flush_1(flush_1),
+	.flush_id_1(flush_id_1),
+
         .in_stall_2(stall_2),
         .out_address_2(start_address_2),
         .out_id_2(start_id_2),
-        .out_valid_2(start_valid_2)
+        .out_valid_2(start_valid_2),
+
+	.flush_2(flush_2),
+	.flush_id_2(flush_id_2)
     );
 
     wire [`ADDRESS_WIDTH-1:0]   end_address_1;
@@ -39,6 +45,12 @@ module top (
 
     wire                        arbiter_valid;
     wire                        arbiter_choice;
+
+    wire                        flush_1;
+    wire [`ID_WIDTH-1:0]        flush_id_1;
+
+    wire                        flush_2;
+    wire [`ID_WIDTH-1:0]        flush_id_2;
 
     arbiter arbiter (
         .clk(clk),
@@ -64,6 +76,9 @@ module top (
         .in_id(start_id_1),
         .in_valid(start_valid_1),
 
+	.in_flush(flush_1),
+	.in_flush_id(flush_id_1),
+
         .out_address(end_address_1),
         .out_id(end_id_1),
         .out_valid(end_valid_1),
@@ -78,6 +93,9 @@ module top (
         .in_address(start_address_2),
         .in_id(start_id_2),
         .in_valid(start_valid_2),
+
+	.in_flush(flush_2),
+	.in_flush_id(flush_id_2),
 
         .out_address(end_address_2),
         .out_id(end_id_2),

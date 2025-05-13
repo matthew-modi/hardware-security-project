@@ -82,7 +82,7 @@ module producer (
 
             if (!in_stall_2) begin
                 reg_address_2 <= (reg_address_2 + 4) & ((1 << `ADDRESS_WIDTH) - 1);
-                reg_id_2      <= {4'd2, (reg_id_1[3:0] + 4'b1)};
+                reg_id_2      <= {4'd2, (reg_id_2[3:0] + 4'b1)};
                 reg_valid_2   <= 1;
             end
 

@@ -9,6 +9,9 @@ module pipeline (
     input  wire                         in_valid,
     output wire                         out_stall,
 
+    input  wire                         in_flush,
+    input  wire [`ID_WIDTH-1:0]         in_flush_id,
+
     output wire [`ADDRESS_WIDTH-1:0]    out_address,
     output wire [`ID_WIDTH-1:0]         out_id,
     output wire                         out_valid,
@@ -20,11 +23,16 @@ module pipeline (
     wire                      valid   [`PIPELINE_DEPTH:0];
     wire                      stall   [`PIPELINE_DEPTH:0];
 
+    wire                      flush    [`PIPELINE_DEPTH:0]; //flush[PIPELINE] should be unused
+    wire [`ID_WIDTH-1:0]      flush_id [`PIPELINE_DEPTH:0];
 
     assign address[0] = in_address;
     assign id[0]      = in_id;
     assign valid[0]   = in_valid;
     assign out_stall = stall[0];
+
+    assign flush[0]    = in_flush;
+    assign flush_id[0] = in_flush_id;
 
     assign out_address = address[`PIPELINE_DEPTH];
     assign out_id      = id[`PIPELINE_DEPTH];
@@ -45,9 +53,16 @@ module pipeline (
             .in_valid(valid[i]),
             .out_stall(stall[i]),
 
+	    .in_flush(flush[i]),
+	    .in_flush_id(flush_id[i]),
+
             .out_address(address[i+1]),
             .out_id(id[i+1]),
             .out_valid(valid[i+1]),
+
+	    .out_flush(flush[i + 1]),
+	    .out_flush_id(flush_id[i + 1]),
+
             .in_stall(stall[i+1])
             );
         end

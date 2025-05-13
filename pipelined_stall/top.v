@@ -40,10 +40,18 @@ module top (
     wire                        end_valid_1;
     wire                        end_stall_1;
 
+	reg                         flush_mem_1;
+    wire                        stall_1_arbiter;
+    wire						flush_out_1;
+
     wire [`ADDRESS_WIDTH-1:0]   end_address_2;
     wire [`ID_WIDTH-1:0]        end_id_2;
     wire                        end_valid_2;
     wire                        end_stall_2;
+
+	reg                         flush_mem_2;
+    wire                        stall_2_arbiter;
+    wire						flush_out_2;
 
     wire                        arbiter_valid;
     wire                        arbiter_choice;
@@ -53,6 +61,34 @@ module top (
 
     wire                        flush_2;
     wire [`ID_WIDTH-1:0]        flush_id_2;
+
+	assign end_stall_1 = stall_1_arbiter || flush_1 || flush_mem_1;
+
+    always_ff @ (posedge clk or posedge reset) begin
+		if (reset) begin
+			flush_mem_1 <= 0;
+		end else begin
+			if (flush_mem_1) begin
+				flush_mem_1 <= (flush_1 || !flush_out_1); //only set to zero when flush_1 is zero and flush_out is 1
+			end else begin
+				flush_mem_1 <= flush_1;
+			end
+		end
+    end
+
+	assign end_stall_2 = stall_2_arbiter || flush_2 || flush_mem_2;
+
+    always_ff @ (posedge clk or posedge reset) begin
+		if (reset) begin
+			flush_mem_2 <= 0;
+		end else begin
+			if (flush_mem_2) begin
+				flush_mem_2 <= (flush_2 || !flush_out_2); //only set to zero when flush_1 is zero and flush_out is 1
+			end else begin
+				flush_mem_2 <= flush_2;
+			end
+		end
+    end
 
     arbiter arbiter (
         .clk(clk),
@@ -66,8 +102,8 @@ module top (
         .out_choice(arbiter_choice),
         .out_valid(arbiter_valid),
 
-        .out_stall_1(end_stall_1),
-        .out_stall_2(end_stall_2)
+        .out_stall_1(stall_1_arbiter),
+        .out_stall_2(stall_2_arbiter)
     );
 
     pipeline pipeline_1 (
@@ -85,7 +121,9 @@ module top (
         .out_address(end_address_1),
         .out_id(end_id_1),
         .out_valid(end_valid_1),
-        .in_stall(end_stall_1)
+        .in_stall(end_stall_1),
+
+		.out_flush(flush_out_1)
     );
 
     pipeline pipeline_2 (
@@ -103,7 +141,9 @@ module top (
         .out_address(end_address_2),
         .out_id(end_id_2),
         .out_valid(end_valid_2),
-        .in_stall(end_stall_2)
+        .in_stall(end_stall_2),
+
+		.out_flush(flush_out_2)
     );
 
     wire [`DATA_WIDTH-1:0]  resource_data;

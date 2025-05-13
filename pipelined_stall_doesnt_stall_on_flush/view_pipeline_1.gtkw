@@ -1,0 +1,52 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Wed May  7 22:05:48 2025
+[*]
+[dumpfile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/v1/dump.vcd"
+[dumpfile_mtime] "Wed May  7 22:04:46 2025"
+[dumpfile_size] 16382
+[savefile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/v1/view_1.gtkw"
+[timestart] 18
+[size] 933 600
+[pos] -59 135
+*-1.930160 19 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.pipeline.
+[treeopen] TOP.pipeline.PIPELINE(0).
+[treeopen] TOP.pipeline.PIPELINE(1).
+[treeopen] TOP.pipeline.PIPELINE(2).
+[sst_width] 214
+[signals_width] 222
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+TOP.pipeline.clk
+TOP.pipeline.reset
+@22
+TOP.pipeline.PIPELINE(0).stage_inst.in_id[4:0]
+TOP.pipeline.PIPELINE(0).stage_inst.in_address[4:0]
+@28
+TOP.pipeline.PIPELINE(0).stage_inst.in_valid
+TOP.pipeline.PIPELINE(0).stage_inst.in_stall
+TOP.pipeline.PIPELINE(1).stage_inst.out_stall
+@22
+TOP.pipeline.PIPELINE(1).stage_inst.in_id[4:0]
+TOP.pipeline.PIPELINE(1).stage_inst.in_address[4:0]
+@28
+TOP.pipeline.PIPELINE(1).stage_inst.in_valid
+TOP.pipeline.PIPELINE(1).stage_inst.in_stall
+TOP.pipeline.PIPELINE(2).stage_inst.out_stall
+@22
+TOP.pipeline.PIPELINE(2).stage_inst.in_id[4:0]
+TOP.pipeline.PIPELINE(2).stage_inst.in_address[4:0]
+@28
+TOP.pipeline.PIPELINE(2).stage_inst.in_valid
+TOP.pipeline.PIPELINE(2).stage_inst.in_stall
+@22
+TOP.pipeline.PIPELINE(2).stage_inst.out_id[4:0]
+@23
+TOP.pipeline.PIPELINE(2).stage_inst.out_address[4:0]
+@28
+TOP.pipeline.PIPELINE(2).stage_inst.out_valid
+[pattern_trace] 1
+[pattern_trace] 0

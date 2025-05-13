@@ -1,0 +1,72 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu May  8 08:07:56 2025
+[*]
+[dumpfile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/pipelined_stall/dump.vcd"
+[dumpfile_mtime] "Thu May  8 08:04:34 2025"
+[dumpfile_size] 16972
+[savefile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/pipelined_stall/view_top_1_producer_pipeline.gtkw"
+[timestart] 22
+[size] 1225 763
+[pos] 2740 127
+*-1.930160 47 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[treeopen] TOP.top.pipeline_1.
+[treeopen] TOP.top.pipeline_1.PIPELINE(0).
+[treeopen] TOP.top.pipeline_1.PIPELINE(1).
+[treeopen] TOP.top.pipeline_1.PIPELINE(2).
+[sst_width] 214
+[signals_width] 222
+[sst_expanded] 1
+[sst_vpaned_height] 207
+@28
+TOP.top.producer.clk
+TOP.top.producer.reset
+@200
+-
+-producer 1
+@28
+TOP.top.producer.in_stall_1
+@22
+TOP.top.producer.out_address_1[7:0]
+TOP.top.producer.out_id_1[7:0]
+@28
+TOP.top.producer.out_valid_1
+@200
+-
+-producer 2
+@28
+TOP.top.producer.in_stall_2
+@22
+TOP.top.producer.out_id_2[7:0]
+TOP.top.producer.out_address_2[7:0]
+@28
+TOP.top.producer.out_valid_2
+@200
+-
+@201
+-stage 0
+@22
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_address[7:0]
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_id[7:0]
+@28
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_valid
+@200
+-
+-stage 1
+@22
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_address[7:0]
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_id[7:0]
+@28
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_valid
+@200
+-
+-(output) stage 2
+@22
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_address[7:0]
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_id[7:0]
+@28
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_valid
+[pattern_trace] 1
+[pattern_trace] 0

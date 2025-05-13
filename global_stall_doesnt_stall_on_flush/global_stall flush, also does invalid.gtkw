@@ -1,0 +1,82 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Sun May 11 03:36:31 2025
+[*]
+[dumpfile] "/homes/user/stud/fall22/sps2308/HardwareSecurity/hardware-security-project/global_stall/dump.vcd"
+[dumpfile_mtime] "Sun May 11 03:26:53 2025"
+[dumpfile_size] 22152
+[savefile] "/homes/user/stud/fall22/sps2308/HardwareSecurity/hardware-security-project/global_stall/global_stall flush, also does invalid.gtkw"
+[timestart] 18
+[size] 2659 781
+[pos] -1 -1
+*-4.009263 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[treeopen] TOP.top.pipeline_1.
+[treeopen] TOP.top.pipeline_1.PIPELINE(0).
+[treeopen] TOP.top.pipeline_1.PIPELINE(1).
+[treeopen] TOP.top.pipeline_1.PIPELINE(2).
+[sst_width] 275
+[signals_width] 385
+[sst_expanded] 1
+[sst_vpaned_height] 219
+@28
+TOP.clk
+@200
+-
+@22
+TOP.top.shared_resource.counter[3:0]
+TOP.top.producer.flush_counter[5:0]
+TOP.top.producer.flush_id_1[7:0]
+@28
+TOP.top.producer.flush_1
+@22
+TOP.top.producer.out_id_1[7:0]
+@28
+TOP.top.arbiter.out_stall_1
+@200
+-
+@22
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_address[7:0]
+@28
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_flush
+@22
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_flush_id[7:0]
+@23
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_id[7:0]
+@28
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_valid
+@200
+-
+@22
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_address[7:0]
+@28
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_flush
+@22
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_flush_id[7:0]
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_id[7:0]
+@28
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_valid
+@200
+-
+@22
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_address[7:0]
+@28
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_flush
+@22
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_flush_id[7:0]
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_id[7:0]
+@28
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_valid
+[pattern_trace] 1
+[pattern_trace] 0

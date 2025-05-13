@@ -1,0 +1,75 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Tue May 13 09:56:05 2025
+[*]
+[dumpfile] "/homes/user/stud/fall22/sps2308/HardwareSecurity/hardware-security-project/global_stall/dump.vcd"
+[dumpfile_mtime] "Tue May 13 09:42:51 2025"
+[dumpfile_size] 119403
+[savefile] "/homes/user/stud/fall22/sps2308/HardwareSecurity/hardware-security-project/global_stall/basic_pipeline_view.gtkw"
+[timestart] 0
+[size] 3299 897
+[pos] -1 -1
+*-4.000000 109 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[treeopen] TOP.top.pipeline_1.
+[treeopen] TOP.top.pipeline_1.PIPELINE(0).
+[treeopen] TOP.top.pipeline_1.PIPELINE(1).
+[treeopen] TOP.top.pipeline_1.PIPELINE(2).
+[sst_width] 275
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 260
+@28
+TOP.clk
+@22
+TOP.top.pipeline_1.out_id[7:0]
+@28
+TOP.top.pipeline_1.in_stall
+TOP.top.producer.in_stall_1
+TOP.top.producer.flush_1
+@22
+TOP.top.producer.flush_id_1[7:0]
+TOP.top.producer.reg_id_1[7:0]
+@200
+-
+@28
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_flush
+@22
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_flush_id[7:0]
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_address[7:0]
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_id[7:0]
+@28
+[color] 1
+TOP.top.pipeline_1.PIPELINE(0).stage_inst.reg_valid
+@200
+-
+@28
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_flush
+@22
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_flush_id[7:0]
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_address[7:0]
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_id[7:0]
+@28
+TOP.top.pipeline_1.PIPELINE(1).stage_inst.reg_valid
+@200
+-
+@28
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_flush
+@22
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_flush_id[7:0]
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_address[7:0]
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_id[7:0]
+@28
+[color] 3
+TOP.top.pipeline_1.PIPELINE(2).stage_inst.reg_valid
+[pattern_trace] 1
+[pattern_trace] 0

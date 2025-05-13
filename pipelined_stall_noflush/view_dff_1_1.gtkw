@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu May  8 19:47:00 2025
+[*]
+[dumpfile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/pipelined_stall/dump.vcd"
+[dumpfile_mtime] "Thu May  8 19:46:04 2025"
+[dumpfile_size] 1919
+[savefile] "/mnt/c/Users/matth/Documents/Github/hardware-security-project/pipelined_stall/view_dff_1_1.gtkw"
+[timestart] 39
+[size] 1000 600
+[pos] -1 -1
+*-0.930160 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[sst_width] 214
+[signals_width] 78
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+TOP.dff.clk
+TOP.dff.reset
+@29
+TOP.dff.d
+@28
+TOP.dff.q
+[pattern_trace] 1
+[pattern_trace] 0

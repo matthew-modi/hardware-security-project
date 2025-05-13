@@ -15,7 +15,10 @@ module pipeline (
     output wire [`ADDRESS_WIDTH-1:0]    out_address,
     output wire [`ID_WIDTH-1:0]         out_id,
     output wire                         out_valid,
-    input  wire                         in_stall
+    input  wire                         in_stall,
+
+    output  wire                         out_flush
+    //output  wire [`ID_WIDTH-1:0]         out_flush_id
 );
     // Predeclare forward-facing wires
     wire [`ADDRESS_WIDTH-1:0] address [`PIPELINE_DEPTH:0];
@@ -33,6 +36,9 @@ module pipeline (
 
     assign flush[0]    = in_flush;
     assign flush_id[0] = in_flush_id;
+
+    assign out_flush    = flush[`PIPELINE_DEPTH];
+    //assign flush_id[0] = in_flush_id;
 
     assign out_address = address[`PIPELINE_DEPTH];
     assign out_id      = id[`PIPELINE_DEPTH];

@@ -14,6 +14,8 @@ module pipeline (
     output wire [`ADDRESS_WIDTH-1:0]    out_address,
     output wire [`ID_WIDTH-1:0]         out_id,
     output wire                         out_valid,
+
+	output wire                         flush_out,
     
     input  wire                         in_stall
 );
@@ -22,9 +24,8 @@ module pipeline (
     wire [`ID_WIDTH-1:0]      id       [`PIPELINE_DEPTH:0];
     wire                      valid    [`PIPELINE_DEPTH:0];
 
-    wire                      flush    [`PIPELINE_DEPTH:0]; //flush[PIPELINE] should be unused
+    wire                      flush    [`PIPELINE_DEPTH:0];
     wire [`ID_WIDTH-1:0]      flush_id [`PIPELINE_DEPTH:0];
-
 
     assign address[0]  = in_address;
     assign id[0]       = in_id;
@@ -36,6 +37,8 @@ module pipeline (
     assign out_address = address[`PIPELINE_DEPTH];
     assign out_id      = id[`PIPELINE_DEPTH];
     assign out_valid   = valid[`PIPELINE_DEPTH];
+
+	assign flush_out   = flush[`PIPELINE_DEPTH]; 
 
     genvar i;
     generate

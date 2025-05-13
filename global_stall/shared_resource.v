@@ -23,7 +23,7 @@ module shared_resource (
 
     reg [`RESOURCE_DELAY_COUNTER_WIDTH-1:0] counter;
 
-    //reg [`RESOURCE_DELAY_COUNTER_WIDTH-1:0] ready_counter; //testing what happens with long_nonstall
+    reg [`RESOURCE_DELAY_COUNTER_WIDTH-1:0] ready_counter; //testing what happens with long_nonstall
 
     assign out_data = reg_data_external;
     assign out_id   = reg_id_external;
@@ -43,7 +43,7 @@ module shared_resource (
 
             counter <= 0;
 
-	    //ready_counter <= 0;
+	    	ready_counter <= 0;
         end else begin
             if (counter == 0) begin
                 if (in_valid) begin // New data received, process it and wait
@@ -64,12 +64,12 @@ module shared_resource (
                 reg_id_external   <= reg_id_internal;
                 reg_ready <= 1;
                 reg_valid <= 1;
-				//if (ready_counter < 4'hf) begin
-				//	ready_counter <= ready_counter + 4'd1;
-				//end else begin
+				if (ready_counter < 4'hf) begin
+					ready_counter <= ready_counter + 4'd1;
+				end else begin
 					counter <= 0;
-				//	ready_counter <= 4'd0;
-				//end
+					ready_counter <= 4'd0;
+				end
             end
         end
     end

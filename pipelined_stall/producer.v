@@ -38,9 +38,14 @@ module producer (
 	reg [5:0]                flush_counter; //simulate doing the flush at a certain time as a proff of concept
 	reg                      flush_issued;
 
+	reg [1:0]                issue_data_counter;
+	reg [`ID_WIDTH-1:0]      reg_id_1_old;
+	//reg						 data_issued;
+
     // Output mappings
     assign out_address_1 = reg_address_1;
-    assign out_id_1      = {reg_id_1[`ID_WIDTH-1:1], 1'b0};
+    //assign out_id_1      = {reg_id_1[`ID_WIDTH-1:1], 1'b0};
+	assign out_id_1      = reg_id_1;
     assign out_valid_1   = reg_valid_1;
 
 	assign flush_1       = reg_flush_1;
@@ -73,11 +78,32 @@ module producer (
 			flush_counter  <= 6'd60;
 			flush_issued   <= 0;
 
+			//data_issued <= 0;
+
+			issue_data_counter <= 0;
+			reg_id_1_old <= 0;
+
         end else begin
             if (!in_stall_1) begin
-                reg_address_1 <= (reg_address_1 + 4) & ((1 << `ADDRESS_WIDTH) - 1);
-                reg_id_1      <= {4'd1, (reg_id_1[3:0] + 4'b1)};
-                reg_valid_1   <= 1;
+				if (!(|issue_data_counter)) begin
+				//if (!data_issued) begin
+					reg_address_1 <= (reg_address_1 + 4) & ((1 << `ADDRESS_WIDTH) - 1);
+					reg_id_1      <= {4'd1, (reg_id_1_old[3:0] + 4'b1)};
+					reg_id_1_old  <= {4'd1, (reg_id_1_old[3:0] + 4'b1)};
+					reg_valid_1   <= 1;
+					issue_data_counter <= 2'd3;
+				 end else begin
+					reg_address_1 <= 0;
+					reg_id_1      <= 0;
+					reg_valid_1   <= 0;
+					reg_id_1_old  <= reg_id_1_old;
+					issue_data_counter <= issue_data_counter - 2'd1;
+				end
+				// data_issued <= 1;
+					//issue_data_counter <= 2'd3;
+				//end else begin
+				//	issue_data_counter <= issue_data_counter - 2'd1;
+				//end
             end
 
             if (!in_stall_2) begin

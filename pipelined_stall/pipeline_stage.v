@@ -73,7 +73,9 @@ module pipeline_stage (
 				reg_main_id      <= (main_sel) ? reg_overflow_id : in_id;
 				reg_main_valid   <= 1;
 			end else begin
-				reg_main_valid   <= 0;
+				reg_main_address <= 0;
+				reg_main_id      <= 0;
+				reg_main_valid   <= 0; //default version just sets the bit
 			end
         end
 		if (in_flush && (in_flush_id == reg_main_id)) begin
@@ -98,7 +100,9 @@ module pipeline_stage (
 				reg_overflow_id      <= (overflow_sel) ? in_id : 0;
 				reg_overflow_valid   <= (overflow_sel) ? 1 : 0;
 			end else begin
-				reg_overflow_valid   <= 0;
+				reg_overflow_address <= 0;
+				reg_overflow_id      <= 0;
+				reg_overflow_valid   <= 0; //default version just sets the bit
 			end
         end
 		if (in_flush && (in_flush_id == reg_overflow_id)) begin

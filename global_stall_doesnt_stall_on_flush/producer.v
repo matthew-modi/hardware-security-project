@@ -177,7 +177,7 @@ module producer (
 			reg_flush_2    <= 0;
 			reg_flush_id_2 <= 0;
 
-			flush_counter  <= 6'd42;
+			flush_counter  <= 6'd41;
 			flush_issued   <= 0;
 
 			//data_issued <= 0;

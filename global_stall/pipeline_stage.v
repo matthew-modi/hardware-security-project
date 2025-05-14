@@ -57,7 +57,7 @@ module pipeline_stage (
                     reg_valid <= 0; //default just sets valid to 0
                 end
             end
-			if (in_flush && (in_flush_id == reg_id)) begin
+			if (in_flush && (in_flush_id == reg_id) && in_stall) begin // test the && in_stall version
 				reg_address <= 0;
                 reg_id      <= 0;
                 reg_valid   <= 0;

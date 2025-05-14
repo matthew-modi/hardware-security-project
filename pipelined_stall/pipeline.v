@@ -29,6 +29,12 @@ module pipeline (
     wire                      flush    [`PIPELINE_DEPTH:0]; //flush[PIPELINE] should be unused
     wire [`ID_WIDTH-1:0]      flush_id [`PIPELINE_DEPTH:0];
 
+	reg [`ADDRESS_WIDTH-1:0]  buffer_address;
+	reg [`ID_WIDTH-1:0]       buffer_id;
+	reg                       buffer_valid;
+
+
+
     assign address[0] = in_address;
     assign id[0]      = in_id;
     assign valid[0]   = in_valid;
@@ -40,10 +46,29 @@ module pipeline (
     assign out_flush    = flush[`PIPELINE_DEPTH];
     //assign flush_id[0] = in_flush_id;
 
-    assign out_address = address[`PIPELINE_DEPTH];
-    assign out_id      = id[`PIPELINE_DEPTH];
-    assign out_valid   = valid[`PIPELINE_DEPTH];
+    //assign out_address = address[`PIPELINE_DEPTH];
+    //assign out_id      = id[`PIPELINE_DEPTH];
+    //assign out_valid   = valid[`PIPELINE_DEPTH];
+
+	assign out_address = buffer_address;
+    assign out_id      = buffer_id;
+    assign out_valid   = buffer_valid;
+
     assign stall[`PIPELINE_DEPTH] = in_stall;
+
+	always_ff @ (posedge clk or posedge reset) begin
+		if (reset) begin
+			buffer_address <= 0;
+			buffer_id <= 0;
+			buffer_valid <= 0;
+		end else begin
+			if (!in_stall) begin
+				buffer_address <= address[`PIPELINE_DEPTH];
+				buffer_id <= id[`PIPELINE_DEPTH];
+				buffer_valid <= valid[`PIPELINE_DEPTH];
+			end
+		end
+	end
 
     genvar i;
     generate

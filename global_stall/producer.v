@@ -216,7 +216,7 @@ module producer (
 
 			if (!(|flush_counter) && !flush_issued) begin
 				reg_flush_1 <= 1;
-				reg_flush_id_1 <= 8'h16;
+				reg_flush_id_1 <= 8'h18;
 				flush_issued <= 1;
 			end else begin
 				reg_flush_1 <= 0;

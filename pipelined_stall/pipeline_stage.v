@@ -44,7 +44,7 @@ module pipeline_stage (
 
 	assign main_en = !(in_stall && reg_main_valid);
 	//assign overflow_en = (!main_en && !reg_overflow_valid); //if overflow isn't occupied and main is off
-	assign overflow_en = (!in_stall && reg_overflow_valid && reg_main_valid) || (in_stall && !reg_overflow_valid && reg_main_valid) || (in_stall && reg_overflow_valid && !reg_main_valid);
+	assign overflow_en = (!in_stall && reg_overflow_valid && reg_main_valid) || (in_stall && !reg_overflow_valid && reg_main_valid) || (in_stall && reg_overflow_valid && !reg_main_valid) || (!in_stall && reg_overflow_valid && !reg_main_valid);
 
     //reg head;
     //reg tail;
@@ -78,7 +78,7 @@ module pipeline_stage (
 				reg_main_valid   <= 0; //default version just sets the bit
 			end
         end
-		if (in_flush && (in_flush_id == reg_main_id)) begin
+		if (in_flush && (in_flush_id == reg_main_id) && in_stall) begin
 			reg_main_address <= 0;
 			reg_main_id      <= 0;
 			reg_main_valid   <= 0;
@@ -105,7 +105,7 @@ module pipeline_stage (
 				reg_overflow_valid   <= 0; //default version just sets the bit
 			end
         end
-		if (in_flush && (in_flush_id == reg_overflow_id)) begin
+		if (in_flush && (in_flush_id == reg_overflow_id) && in_stall) begin
 			reg_overflow_address <= 0;
 			reg_overflow_id      <= 0;
 			reg_overflow_valid   <= 0;

@@ -75,7 +75,7 @@ module producer (
 			reg_flush_2    <= 0;
 			reg_flush_id_2 <= 0;
 
-			flush_counter  <= 6'd47;
+			flush_counter  <= 6'd44;
 			flush_issued   <= 0;
 
 			//data_issued <= 0;
@@ -114,7 +114,7 @@ module producer (
 
 			if (!(|flush_counter) && !flush_issued) begin
 				reg_flush_1 <= 1;
-				reg_flush_id_1 <= 8'h1a;
+				reg_flush_id_1 <= 8'h16;
 				flush_issued <= 1;
 			end else begin
 				reg_flush_1 <= 0;
